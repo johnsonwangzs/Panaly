@@ -153,7 +153,7 @@ def extract_title(conf_proceedings):
             elif conference in ['nips']:
                 if srcfile_path.endswith('.htm'):
                     title_list = te.extract_title_from_html_nips(srcfile_path)
-            elif conference in ['iclr']:
+            elif conference in ['iclr', 'icml']:
                 if srcfile_path.endswith('.html'):
                     title_list = te.extract_title_from_html_iclr(srcfile_path)
 
