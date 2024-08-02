@@ -1,8 +1,8 @@
 class Config:
     # 支持会议
-    support_conference = ['acl', 'coling','emnlp', 'iclr', 'nips']
+    support_conference = ['acl', 'coling','emnlp', 'iclr', 'icml', 'naacl', 'nips']
 
-    # 术语替换表, 注意: 不同术语的先后顺序可能影响效果!!! 例如, LM应置于LLM之后.
+    # 术语替换表, 注意: 不同术语的先后顺序可能影响效果! 例如, LM应置于LLM之后.
     tidy_terminology = {
         'LLM': ['llms', 'llm', 'large language models', 'large language model'],
         'pretrain': ['pre-trained', 'pre-training', 'pre-train', 'pretrained', 'pretraining'],
@@ -77,7 +77,7 @@ class Config:
             '2019': 'https://iclr.cc/Downloads/2019',
             '2018': 'https://iclr.cc/Downloads/2018',
         },
-        'icml': {
+        'icml': {  # https://icml.cc/Downloads
             '2024': 'https://icml.cc/Downloads/2024',
             '2023': 'https://icml.cc/Downloads/2023',
             '2022': 'https://icml.cc/Downloads/2022',
@@ -86,6 +86,18 @@ class Config:
             '2019': 'https://icml.cc/Downloads/2019',
             '2018': 'https://icml.cc/Downloads/2018',
             '2017': 'https://icml.cc/Downloads/2017',
+        },
+        'naacl': {  # https://aclanthology.org/venues/naacl/
+            '2024mainlong': 'https://aclanthology.org/volumes/2024.naacl-long.bib',
+            '2022mainlong': 'https://aclanthology.org/volumes/2022.naacl-main.bib',
+            '2021mainlong': 'https://aclanthology.org/volumes/2021.naacl-main.bib',
+            '2019mainlong': 'https://aclanthology.org/volumes/N19-1.bib',
+            '2018mainlong': 'https://aclanthology.org/volumes/N18-1.bib',
+            '2016main': 'https://aclanthology.org/volumes/N16-1.bib',
+            '2015main': 'https://aclanthology.org/volumes/N15-1.bib',
+            '2013main': 'https://aclanthology.org/volumes/N13-1.bib',
+            '2012main': 'https://aclanthology.org/volumes/N12-1.bib',
+            '2010main': 'https://aclanthology.org/volumes/N10-1.bib',
         },
         'nips': {  # https://papers.nips.cc/
             '2023main&benchmark': 'https://papers.nips.cc/paper_files/paper/2023',
@@ -174,6 +186,18 @@ class Config:
             '2018': 'resources/2018.icml.html',
             '2017': 'resources/2017.icml.html',
         },
+        'naacl': {
+            '2024mainlong': 'resources/2024.naacl.bib',
+            '2022mainlong': 'resources/2022.naacl.bib',
+            '2021mainlong': 'resources/2021.naacl.bib',
+            '2019mainlong': 'resources/2019.naacl.bib',
+            '2018mainlong': 'resources/2018.naacl.bib',
+            '2016main': 'resources/2016.naacl.bib',
+            '2015main': 'resources/2015.naacl.bib',
+            '2013main': 'resources/2013.naacl.bib',
+            '2012main': 'resources/2012.naacl.bib',
+            '2010main': 'resources/2010.naacl.bib',
+        },
         'nips': {
             '2023main&benchmark': 'resources/2023.nips.main&benchmark.htm',
             '2022main&benchmark': 'resources/2022.nips.main&benchmark.htm',
@@ -260,6 +284,18 @@ class Config:
             '2019': 'resources/title_icml19.txt',
             '2018': 'resources/title_icml18.txt',
             '2017': 'resources/title_icml17.txt',
+        },
+        'naacl': {
+            '2024mainlong': 'resources/title_naacl24.txt',
+            '2022mainlong': 'resources/title_naacl22.txt',
+            '2021mainlong': 'resources/title_naacl21.txt',
+            '2019mainlong': 'resources/title_naacl19.txt',
+            '2018mainlong': 'resources/title_naacl18.txt',
+            '2016main': 'resources/title_naacl16.txt',
+            '2015main': 'resources/title_naacl15.txt',
+            '2013main': 'resources/title_naacl13.txt',
+            '2012main': 'resources/title_naacl12.txt',
+            '2010main': 'resources/title_naacl10.txt',
         },
         'nips': {
             '2023main&benchmark': 'resources/title_nips23main&benchmark.txt',
