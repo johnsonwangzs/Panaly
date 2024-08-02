@@ -41,6 +41,31 @@ class TitleExtractor:
         self.conference = conference
         self.proceeding = proceeding
 
+    def extract_title_from_html_nips(self, file_path):
+        """从 nips.cc 的html网页中获取论文题目
+        例如 https://papers.nips.cc/paper_files/paper/2023"""
+        with open(file_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+
+        bs = BeautifulSoup(html_content, 'html.parser')
+        ul_tags = bs.select('div.container-fluid ul')
+
+        titles = []
+        if ul_tags:
+            ul_tag = ul_tags[0]
+            li_tags = ul_tag.find_all('li')
+            for li in li_tags:
+                a_tag = li.find('a')
+                if a_tag:
+                    title = re.sub(r'\s+', ' ', a_tag.text).lower()  # 删除多余字符, 转小写
+                    title = substitute_terminology(title)  # 专业术语合并
+                    titles.append(title)
+        else:
+            print('No <ul> tag found with the specified selector.')
+
+        print(f'提取完毕. {self.conference}-{self.proceeding}总数:', len(titles))
+        return titles
+
     def extract_title_from_html_aclweb(self, file_path):
         """从 aclweb.org 的html网页中获取论文题目
         例如 https://2024.aclweb.org/program/main_conference_papers/ """
@@ -94,6 +119,9 @@ def extract_title(conference, proceeding):
             title_list = te.extract_title_from_html_aclweb(srcfile_path)
         elif srcfile_path.endswith('.bib'):
             title_list = te.extract_title_from_bib(srcfile_path)
+    elif conference in ['nips']:
+        if srcfile_path.endswith('.htm'):
+            title_list = te.extract_title_from_html_nips(srcfile_path)
 
     with open(Config.title_file.get(conference).get(proceeding), 'w', encoding='utf-8') as f:
         for title in title_list:
@@ -101,7 +129,7 @@ def extract_title(conference, proceeding):
 
 
 if __name__ == '__main__':
-    conference = 'acl'
-    proceeding = '2023mainlong'
+    conference = 'nips'
+    proceeding = '2022main'
 
     extract_title(conference, proceeding)

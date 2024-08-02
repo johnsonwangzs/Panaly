@@ -25,6 +25,10 @@ class Config:
             '2024main': 'resources/2024.lrec-main.bib',
             '2022main': 'resources/2022.coling-1.bib',
             '2020main': 'resources/2020.coling-main.bib',
+        },
+        'nips': {
+            '2023main': 'resources/2023.nips.htm',
+            '2022main': 'resources/2022.nips.htm'
         }
     }
 
@@ -54,6 +58,10 @@ class Config:
             '2024main': 'resources/title_coling24main.txt',
             '2022main': 'resources/title_coling22main.txt',
             '2020main': 'resources/title_coling20main.txt',
+        },
+        'nips': {
+            '2023main': 'resources/title_nips23main.txt',
+            '2022main': 'resources/title_nips22main.txt'
         }
     }
 

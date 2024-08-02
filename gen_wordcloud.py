@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from config import Config
 
-max_words = 60
-conference = 'acl'
-proceeding = '2024mainlong'
+max_words = 150
+conference = 'nips'
+proceeding = '2023main'
 
 
 def gen_wordcloud(conference: str, proceeding: str, max_words: int):
