@@ -2,6 +2,23 @@ class Config:
     # 支持会议
     support_conference = ['acl', 'coling','emnlp', 'nips']
 
+    # 术语替换表, 注意: 不同术语的先后顺序可能影响效果!!! 例如, LM应置于LLM之后.
+    tidy_terminology = {
+        'LLM': ['llms', 'llm', 'large language models', 'large language model'],
+        'pretrain': ['pre-trained', 'pre-training', 'pre-train', 'pretrained', 'pretraining'],
+        'LM': ['language models', 'language model'],
+        'CoT': ['chain-of-thought'],
+        'NLP': ['natural language processing'],
+        'AI': ['artificial intelligence'],
+        'InstTune': ['instruction tuning', 'instruction tuned', 'instruction-tuning', 'instruction-tuned'],
+        'KG': ['knowledge graphs', 'knowledge graph'],
+        'ReinLearn': ['reinforcement learning'],
+        'ICL': ['in-context-learning', 'in-context learning', 'in context learning'],
+        'finetune': ['fine-tuning', 'fine-tuned', 'finetuning', 'finetuned', 'fine tune'],
+        'evaluation': ['evaluating', 'evaluated', 'evaluate'],
+        'benchmark': ['benchmarking', 'benchmarks'],
+    }
+
     # 网址
     src_url = {
         'acl': {  # https://aclanthology.org/venues/acl/
@@ -180,5 +197,3 @@ class Config:
             '2024findlong': 'resources/keyword_acl24findlong.txt'
         }
     }
-
-    # TODO: 允许自定义专业术语

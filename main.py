@@ -4,33 +4,27 @@ from gen_wordcloud import gen_wordcloud
 from analyze_tendency import analyze_tendency
 from dl_resource import dl_resource
 
+"""在config.py中查看或添加会议和论文集"""
 
+"""设置用于构建词云的参数"""
 max_words = 150  # 词云包含Top k高频词
-
-# 在config.py中查看或添加会议和论文集
 conference = 'nips'
 proceeding = '2023main&benchmark'
 
-# 用于描述趋势.
+"""设置用于绘制趋势的参数"""
 # 指定论文集
-# 需提供关键字的各种可能变体(小写), 并指定图表描述文字
-# conf_proceedings = {
-#     'acl':
-#         ['2024mainlong',
-#          '2023mainlong',
-#          '2022mainlong',
-#          '2021mainlong',
-#          '2020main',
-#          '2019main',
-#          '2018main',
-#          '2017main']
-# }
 conf_proceedings = {
-    'nips':
-        ['2023main&benchmark',
-         '2022main&benchmark',
-         '2021main']
+    'acl':
+        ['2024mainlong',
+         '2023mainlong',
+         '2022mainlong',
+         '2021mainlong',
+         '2020main',
+         '2019main',
+         '2018main',
+         '2017main']
 }
+# 需提供关键字的各种可能变体(小写), 并指定图表描述文字
 description = 'evaluation'
 keywords = ['evaluation',
             'benchmark',

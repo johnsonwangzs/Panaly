@@ -4,7 +4,7 @@ from config import Config
 
 max_words = 150
 conference = 'nips'
-proceeding = '2023main'
+proceeding = '2023main&benchmark'
 
 
 def gen_wordcloud(conference: str, proceeding: str, max_words: int):
