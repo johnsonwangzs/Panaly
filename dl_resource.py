@@ -30,15 +30,15 @@ def dl_resource(conf_proceedings):
 
 if __name__ == '__main__':
     conf_proceedings = {
-        'acl':
-            ['2024mainlong',
-             '2023mainlong',
-             '2022mainlong',
-             '2021mainlong',
-             '2020main',
-             '2019main',
-             '2018main',
-             '2017main']
+        'iclr':
+            ['2024',
+             '2023',
+             '2022',
+             '2021',
+             '2020',
+             '2019',
+             '2018',
+             ]
     }
 
-
+    dl_resource(conf_proceedings)

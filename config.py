@@ -1,6 +1,6 @@
 class Config:
     # 支持会议
-    support_conference = ['acl', 'coling','emnlp', 'nips']
+    support_conference = ['acl', 'coling','emnlp', 'iclr', 'nips']
 
     # 术语替换表, 注意: 不同术语的先后顺序可能影响效果!!! 例如, LM应置于LLM之后.
     tidy_terminology = {
@@ -14,12 +14,12 @@ class Config:
         'KG': ['knowledge graphs', 'knowledge graph'],
         'ReinLearn': ['reinforcement learning'],
         'ICL': ['in-context-learning', 'in-context learning', 'in context learning'],
-        'finetune': ['fine-tuning', 'fine-tuned', 'finetuning', 'finetuned', 'fine tune'],
+        'finetune': ['fine-tuning', 'fine-tuned', 'fine-tune',  'finetuning', 'finetuned'],
         'evaluation': ['evaluating', 'evaluated', 'evaluate'],
         'benchmark': ['benchmarking', 'benchmarks'],
     }
 
-    # 网址
+    # html或bib源文件url
     src_url = {
         'acl': {  # https://aclanthology.org/venues/acl/
             '2024mainlong': 'https://2024.aclweb.org/program/main_conference_papers/',
@@ -42,6 +42,16 @@ class Config:
             '2011main': 'https://aclanthology.org/volumes/P11-1.bib',
             '2010main': 'https://aclanthology.org/volumes/P10-1.bib',
         },
+        'coling': {  # https://aclanthology.org/venues/coling/
+            '2024main': 'https://aclanthology.org/volumes/2024.lrec-main.bib',
+            '2022main': 'https://aclanthology.org/volumes/2022.coling-1.bib',
+            '2020main': 'https://aclanthology.org/volumes/2020.coling-main.bib',
+            '2018main': 'https://aclanthology.org/volumes/C18-1.bib',
+            '2016main': 'https://aclanthology.org/volumes/C16-1.bib',
+            '2014main': 'https://aclanthology.org/volumes/C14-1.bib',
+            '2012main': 'https://aclanthology.org/volumes/C12-1.bib',
+            '2010main': 'https://aclanthology.org/volumes/C10-1.bib',
+        },
         'emnlp': {  # https://aclanthology.org/venues/emnlp/
             '2023main': 'https://aclanthology.org/volumes/2023.emnlp-main.bib',
             '2022main': 'https://aclanthology.org/volumes/2022.emnlp-main.bib',
@@ -58,22 +68,32 @@ class Config:
             '2011main': 'https://aclanthology.org/volumes/D11-1.bib',
             '2010main': 'https://aclanthology.org/volumes/D10-1.bib'
         },
-        'coling': {  # https://aclanthology.org/venues/coling/
-            '2024main': 'https://aclanthology.org/volumes/2024.lrec-main.bib',
-            '2022main': 'https://aclanthology.org/volumes/2022.coling-1.bib',
-            '2020main': 'https://aclanthology.org/volumes/2020.coling-main.bib',
-            '2018main': 'https://aclanthology.org/volumes/C18-1.bib',
-            '2016main': 'https://aclanthology.org/volumes/C16-1.bib',
-            '2014main': 'https://aclanthology.org/volumes/C14-1.bib',
-            '2012main': 'https://aclanthology.org/volumes/C12-1.bib',
-            '2010main': 'https://aclanthology.org/volumes/C10-1.bib',
+        'iclr': {  # https://iclr.cc/Downloads
+            '2024': 'https://iclr.cc/Downloads/2024',
+            '2023': 'https://iclr.cc/Downloads/2023',
+            '2022': 'https://iclr.cc/Downloads/2022',
+            '2021': 'https://iclr.cc/Downloads/2021',
+            '2020': 'https://iclr.cc/Downloads/2020',
+            '2019': 'https://iclr.cc/Downloads/2019',
+            '2018': 'https://iclr.cc/Downloads/2018',
         },
-        'nips': {
+        'nips': {  # https://papers.nips.cc/
             '2023main&benchmark': 'https://papers.nips.cc/paper_files/paper/2023',
             '2022main&benchmark': 'https://papers.nips.cc/paper_files/paper/2022',
             '2021main': 'https://papers.nips.cc/paper_files/paper/2021',
             '2021benchmark': 'https://datasets-benchmarks-proceedings.neurips.cc/paper/2021',
-        }
+            '2020': 'https://papers.nips.cc/paper_files/paper/2020',
+            '2019': 'https://papers.nips.cc/paper_files/paper/2019',
+            '2018': 'https://papers.nips.cc/paper_files/paper/2018',
+            '2017': 'https://papers.nips.cc/paper_files/paper/2017',
+            '2016': 'https://papers.nips.cc/paper_files/paper/2016',
+            '2015': 'https://papers.nips.cc/paper_files/paper/2015',
+            '2014': 'https://papers.nips.cc/paper_files/paper/2014',
+            '2013': 'https://papers.nips.cc/paper_files/paper/2013',
+            '2012': 'https://papers.nips.cc/paper_files/paper/2012',
+            '2011': 'https://papers.nips.cc/paper_files/paper/2011',
+            '2010': 'https://papers.nips.cc/paper_files/paper/2010',
+        },
     }
 
     # 原始html/bib文件
@@ -99,6 +119,16 @@ class Config:
             '2011main': 'resources/2011.acl.main.bib',
             '2010main': 'resources/2010.acl.main.bib',
         },
+        'coling': {
+            '2024main': 'resources/2024.coling.main.bib',
+            '2022main': 'resources/2022.coling.main.bib',
+            '2020main': 'resources/2020.coling.main.bib',
+            '2018main': 'resources/2018.coling.main.bib',
+            '2016main': 'resources/2016.coling.main.bib',
+            '2014main': 'resources/2014.coling.main.bib',
+            '2012main': 'resources/2012.coling.main.bib',
+            '2010main': 'resources/2010.coling.main.bib',
+        },
         'emnlp': {
             '2023main': 'resources/2023.emnlp.main.bib',
             '2022main': 'resources/2022.emnlp.main.bib',
@@ -115,21 +145,31 @@ class Config:
             '2011main': 'resources/2011.emnlp.main.bib',
             '2010main': 'resources/2010.emnlp.main.bib',
         },
-        'coling': {
-            '2024main': 'resources/2024.coling.main.bib',
-            '2022main': 'resources/2022.coling.main.bib',
-            '2020main': 'resources/2020.coling.main.bib',
-            '2018main': 'resources/2018.coling.main.bib',
-            '2016main': 'resources/2016.coling.main.bib',
-            '2014main': 'resources/2014.coling.main.bib',
-            '2012main': 'resources/2012.coling.main.bib',
-            '2010main': 'resources/2010.coling.main.bib',
+        'iclr': {
+            '2024': 'resources/2024.iclr.html',
+            '2023': 'resources/2023.iclr.html',
+            '2022': 'resources/2022.iclr.html',
+            '2021': 'resources/2021.iclr.html',
+            '2020': 'resources/2020.iclr.html',
+            '2019': 'resources/2019.iclr.html',
+            '2018': 'resources/2018.iclr.html',
         },
         'nips': {
             '2023main&benchmark': 'resources/2023.nips.main&benchmark.htm',
             '2022main&benchmark': 'resources/2022.nips.main&benchmark.htm',
             '2021main': 'resources/2021.nips.main.htm',
-            '2021benchmark': 'resources/2021.nips.benchmark.htm'
+            '2021benchmark': 'resources/2021.nips.benchmark.htm',
+            '2020': 'resources/2020.nips.htm',
+            '2019': 'resources/2019.nips.htm',
+            '2018': 'resources/2018.nips.htm',
+            '2017': 'resources/2017.nips.htm',
+            '2016': 'resources/2016.nips.htm',
+            '2015': 'resources/2015.nips.htm',
+            '2014': 'resources/2014.nips.htm',
+            '2013': 'resources/2013.nips.htm',
+            '2012': 'resources/2012.nips.htm',
+            '2011': 'resources/2011.nips.htm',
+            '2010': 'resources/2010.nips.htm',
         }
     }
 
@@ -156,6 +196,16 @@ class Config:
             '2011main': 'resources/title_acl11main.txt',
             '2010main': 'resources/title_acl10main.txt',
         },
+        'coling': {
+            '2024main': 'resources/title_coling24main.txt',
+            '2022main': 'resources/title_coling22main.txt',
+            '2020main': 'resources/title_coling20main.txt',
+            '2018main': 'resources/title_coling18main.txt',
+            '2016main': 'resources/title_coling16main.txt',
+            '2014main': 'resources/title_coling14main.txt',
+            '2012main': 'resources/title_coling12main.txt',
+            '2010main': 'resources/title_coling10main.txt',
+        },
         'emnlp': {
             '2023main': 'resources/title_emnlp23main.txt',
             '2022main': 'resources/title_emnlp22main.txt',
@@ -172,21 +222,31 @@ class Config:
             '2011main': 'resources/title_emnlp11main.txt',
             '2010main': 'resources/title_emnlp10main.txt',
         },
-        'coling': {
-            '2024main': 'resources/title_coling24main.txt',
-            '2022main': 'resources/title_coling22main.txt',
-            '2020main': 'resources/title_coling20main.txt',
-            '2018main': 'resources/title_coling18main.txt',
-            '2016main': 'resources/title_coling16main.txt',
-            '2014main': 'resources/title_coling14main.txt',
-            '2012main': 'resources/title_coling12main.txt',
-            '2010main': 'resources/title_coling10main.txt',
+        'iclr': {
+            '2024': 'resources/title_iclr24.txt',
+            '2023': 'resources/title_iclr23.txt',
+            '2022': 'resources/title_iclr22.txt',
+            '2021': 'resources/title_iclr21.txt',
+            '2020': 'resources/title_iclr20.txt',
+            '2019': 'resources/title_iclr19.txt',
+            '2018': 'resources/title_iclr18.txt',
         },
         'nips': {
             '2023main&benchmark': 'resources/title_nips23main&benchmark.txt',
             '2022main&benchmark': 'resources/title_nips22main&benchmark.txt',
             '2021main': 'resources/title_nips21main.txt',
-            '2021benchmark': 'resources/title_nips21benchmark.txt'
+            '2021benchmark': 'resources/title_nips21benchmark.txt',
+            '2020': 'resources/title_nips20.txt',
+            '2019': 'resources/title_nips19.txt',
+            '2018': 'resources/title_nips18.txt',
+            '2017': 'resources/title_nips17.txt',
+            '2016': 'resources/title_nips16.txt',
+            '2015': 'resources/title_nips15.txt',
+            '2014': 'resources/title_nips14.txt',
+            '2013': 'resources/title_nips13.txt',
+            '2012': 'resources/title_nips12.txt',
+            '2011': 'resources/title_nips11.txt',
+            '2010': 'resources/title_nips10.txt',
         }
     }
 

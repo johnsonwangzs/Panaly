@@ -97,6 +97,31 @@ class TitleExtractor:
         print(f'提取完毕. {self.conference}-{self.proceeding}总数:', len(titles_long))
         return titles_long
 
+    def extract_title_from_html_iclr(self, file_path):
+        """从 iclr.cc 的html网页中获取论文题目
+        例如 https://iclr.cc/Downloads/2024 """
+        with open(file_path, 'r', encoding='utf-8') as f:
+            html_content = f.read()
+
+        bs = BeautifulSoup(html_content, 'html.parser')
+        ul_tags = bs.select('div.list_html ul')
+
+        titles = []
+        if ul_tags:
+            ul_tag = ul_tags[0]
+            li_tags = ul_tag.find_all('li')
+            for li in li_tags:
+                a_tag = li.find('a')
+                if a_tag:
+                    title = re.sub(r'\s+', ' ', a_tag.text).lower()  # 删除多余字符, 转小写
+                    title = substitute_terminology(title)  # 专业术语合并
+                    titles.append(title)
+        else:
+            print('No <ul> tag found with the specified selector.')
+
+        print(f'提取完毕. {self.conference}-{self.proceeding}总数:', len(titles))
+        return titles
+
     def extract_title_from_bib(self, file_path):
         with open(file_path, 'r', encoding='utf-8') as f:
             bib_data = bibtexparser.load(f)
@@ -128,6 +153,9 @@ def extract_title(conf_proceedings):
             elif conference in ['nips']:
                 if srcfile_path.endswith('.htm'):
                     title_list = te.extract_title_from_html_nips(srcfile_path)
+            elif conference in ['iclr']:
+                if srcfile_path.endswith('.html'):
+                    title_list = te.extract_title_from_html_iclr(srcfile_path)
 
             with open(Config.title_file.get(conference).get(proceeding), 'w', encoding='utf-8') as f:
                 for title in title_list:
