@@ -16,7 +16,7 @@ class KeywordExtractor:
             )
 
     def _init_kimi(self):
-        self.api_key = "sk-wZPSkmQPprJA2xLD0MDUSM09IEsAauoKIOe7Ie3sUBu8iBiO"
+        self.api_key = ""
         self.base_url = "https://api.moonshot.cn/v1"
 
     def extract_keyword_kimi(self, titles: list) -> list:

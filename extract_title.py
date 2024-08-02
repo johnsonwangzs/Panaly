@@ -109,27 +109,29 @@ class TitleExtractor:
         return titles
 
 
-def extract_title(conference, proceeding):
+def extract_title(conf_proceedings):
     print('> 正在提取标题...')
-    srcfile_path = Config.src_file.get(conference).get(proceeding)
+    for conference in conf_proceedings.keys():
+        for proceeding in conf_proceedings[conference]:
+            srcfile_path = Config.src_file.get(conference).get(proceeding)
 
-    te = TitleExtractor(conference, proceeding)
-    if conference in ['acl', 'emnlp', 'naacl', 'coling']:
-        if srcfile_path.endswith('.html'):
-            title_list = te.extract_title_from_html_aclweb(srcfile_path)
-        elif srcfile_path.endswith('.bib'):
-            title_list = te.extract_title_from_bib(srcfile_path)
-    elif conference in ['nips']:
-        if srcfile_path.endswith('.htm'):
-            title_list = te.extract_title_from_html_nips(srcfile_path)
+            te = TitleExtractor(conference, proceeding)
+            if conference in ['acl', 'emnlp', 'naacl', 'coling']:
+                if srcfile_path.endswith('.html'):
+                    title_list = te.extract_title_from_html_aclweb(srcfile_path)
+                elif srcfile_path.endswith('.bib'):
+                    title_list = te.extract_title_from_bib(srcfile_path)
+            elif conference in ['nips']:
+                if srcfile_path.endswith('.htm'):
+                    title_list = te.extract_title_from_html_nips(srcfile_path)
 
-    with open(Config.title_file.get(conference).get(proceeding), 'w', encoding='utf-8') as f:
-        for title in title_list:
-            f.write(title + '\n')
+            with open(Config.title_file.get(conference).get(proceeding), 'w', encoding='utf-8') as f:
+                for title in title_list:
+                    f.write(title + '\n')
 
 
 if __name__ == '__main__':
     conference = 'nips'
     proceeding = '2022main'
 
-    extract_title(conference, proceeding)
+    extract_title({conference: [proceeding]})
