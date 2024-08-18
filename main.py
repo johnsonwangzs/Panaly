@@ -8,23 +8,17 @@ from dl_resource import dl_resource
 
 """设置用于构建词云的参数"""
 max_words = 150  # 词云包含Top k高频词
-conference = 'naacl'
+conference = 'acl'
 proceeding = '2024mainlong'
 
 """设置用于绘制趋势的参数"""
 # 指定论文集
 conf_proceedings = {
-    'naacl':
+    'acl':
         ['2024mainlong',
+         '2023mainlong',
          '2022mainlong',
          '2021mainlong',
-         '2019mainlong',
-         '2018mainlong',
-         '2016main',
-         '2015main',
-         '2013main',
-         '2012main',
-         '2010main',
          ]
 }
 

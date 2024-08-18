@@ -22,8 +22,8 @@ class Config:
     # html或bib源文件url
     src_url = {
         'acl': {  # https://aclanthology.org/venues/acl/
-            '2024mainlong': 'https://2024.aclweb.org/program/main_conference_papers/',
-            '2024findlong': 'https://2024.aclweb.org/program/finding_papers/',
+            '2024mainlong': 'https://aclanthology.org/volumes/2024.acl-long.bib',
+            '2024findlong': 'https://aclanthology.org/volumes/2024.findings-acl.bib',
             '2023mainlong': 'https://aclanthology.org/volumes/2023.acl-long.bib',
             '2023findlong': 'https://aclanthology.org/volumes/2023.findings-acl.bib',
             '2022mainlong': 'https://aclanthology.org/volumes/2022.acl-long.bib',
@@ -121,8 +121,8 @@ class Config:
     # 原始html/bib文件
     src_file = {
         'acl': {
-            '2024mainlong': 'resources/2024.acl.main.html',
-            '2024findlong': 'resources/2024.acl.findings.html',
+            '2024mainlong': 'resources/2024.acl.main.bib',
+            '2024findlong': 'resources/2024.acl.findings.bib',
             '2023mainlong': 'resources/2023.acl.main.bib',
             '2023findlong': 'resources/2023.acl.findings.bib',
             '2022mainlong': 'resources/2022.acl.main.bib',

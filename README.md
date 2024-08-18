@@ -23,3 +23,18 @@
 ## 更多配置
 
 在`config.py` 中添加更多会议和论文集. 格式可参考该python文件内容.
+
+## 报错提示
+
+1. 若下载或提取标题模块报错, 可能涉及的会议论文列表发布页面链接有改动, 此时手动将新的 url 更新到 `config.py` 相应位置即可.
+
+    注意: 可能需要同时更新 `Config.src_url` 和 `Config.src_file` 中的内容
+
+2. 若 wordcloud 包报错: "wordcloud Only supported for TrueType fonts", 按以下命令更新相关包即可:
+
+```bash
+pip install --upgrade pip 
+pip install --upgrade Pillow
+```
+
+> https://stackoverflow.com/questions/76129498/wordcloud-only-supported-for-truetype-fonts

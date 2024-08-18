@@ -22,6 +22,8 @@ class Downloader:
 
 
 def dl_resource(conf_proceedings):
+    if not os.path.exists('resources'):
+        os.mkdir('resources')
     print('> 正在下载所需资源...')
     dl = Downloader(conf_proceedings)
     dl.download_files()

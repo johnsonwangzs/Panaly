@@ -10,32 +10,6 @@ def substitute_terminology(string):
     pattern_dict = prepare_terminology()
     for pattern in pattern_dict:
         mod_string = re.sub(pattern_dict[pattern], pattern, mod_string)
-    # pattern = r'\blarge language model\b|\blarge language models\b|\bllm\b|\bllms\b|\bLLMs\b'
-    # mod_string = re.sub(pattern, 'LLM', mod_string)
-    # pattern = r'\bpre-trained\b|\bpre-training\b|\bpre-train\b|\bpretraining\b|\bpretrained\b'
-    # mod_string = re.sub(pattern, 'pretrain', mod_string)
-    # pattern = r'\blanguage model\b|\blanguage models\b'
-    # mod_string = re.sub(pattern, 'LM', mod_string)
-    # pattern = r'\bchain-of-thought\b'
-    # mod_string = re.sub(pattern, 'CoT', mod_string)
-    # pattern = r'\bnatural language processing\b'
-    # mod_string = re.sub(pattern, 'NLP', mod_string)
-    # pattern = r'\bartificial intelligence\b|\bai\b'
-    # mod_string = re.sub(pattern, 'AI', mod_string)
-    # pattern = r'\binstruction tuning\b'
-    # mod_string = re.sub(pattern, 'InstTune', mod_string)
-    # pattern = r'\bknowledge graph\b|\bknowledge graphs\b'
-    # mod_string = re.sub(pattern, 'KG', mod_string)
-    # pattern = r'\breinforcement learning\b'
-    # mod_string = re.sub(pattern, 'RL', mod_string)
-    # pattern = r'\bin-context learning\b|\bin context learning\b'
-    # mod_string = re.sub(pattern, 'ICL', mod_string)
-    # pattern = r'\bfine-tuning\b|\bfine-tuned\b|\bfine-tune\b'
-    # mod_string = re.sub(pattern, 'finetuning', mod_string)
-    # pattern = r'\bevaluating\b|\bevaluate\b'
-    # mod_string = re.sub(pattern, 'evaluation', mod_string)
-    # pattern = r'\bbenchmarking\b|\bbenchmarks\b'
-    # mod_string = re.sub(pattern, 'benchmark', mod_string)
     return mod_string
 
 
