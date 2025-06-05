@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+from wordcloud import WordCloud, STOPWORDS
 from config import Config
 
 max_words = 150
@@ -15,7 +15,9 @@ def gen_wordcloud(conference: str, proceeding: str, max_words: int):
         for line in f.readlines():
             text = text + ', ' + line
 
-    wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=max_words).generate(text)
+    stopwords = STOPWORDS.union(set(Config.stop_word))
+
+    wordcloud = WordCloud(width=800, height=400, background_color='white', max_words=max_words, stopwords=stopwords).generate(text)
 
     plt.figure(figsize=(10, 5), dpi=500)
     plt.imshow(wordcloud, interpolation='bilinear')

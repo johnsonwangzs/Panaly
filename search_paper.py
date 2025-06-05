@@ -11,6 +11,14 @@ class PaperSearcher:
     def search(self):
         """按指定的关键字检索论文.
         不区分大小写, 必须完整匹配"""
+
+        import re
+
+        def tokenize(text):
+            # 去掉所有非字母数字的字符（保留空格），再按空格分词
+            cleaned = re.sub(r'[^\w\s]', '', text.lower())
+            return cleaned.split()
+
         total = 0
         record = {}
         for conference in self.conf_proceedings.keys():
@@ -22,9 +30,10 @@ class PaperSearcher:
                             titles = f.readlines()
                             record[conference][proceeding] = 0
                             for title in titles:
-                                title_lower = title.lower()
-                                title_split = re.split(r'[ -:]', title_lower)
-                                contains_word = any(word in title_split for word in self.keywords)
+                                # title_tokens = ' '.join(tokenize(title))
+                                # contains_word = any(word in title_tokens for word in self.keywords)
+                                title_tokens = tokenize(title)
+                                contains_word = any(kw == token for token in title_tokens for kw in self.keywords)
                                 if contains_word:
                                     print(conference + '-' + proceeding + ' | ' + title.strip())
                                     record[conference][proceeding] += 1

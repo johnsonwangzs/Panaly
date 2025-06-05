@@ -9,7 +9,7 @@ def substitute_terminology(string):
     mod_string = string
     pattern_dict = prepare_terminology()
     for pattern in pattern_dict:
-        mod_string = re.sub(pattern_dict[pattern], pattern, mod_string)
+        mod_string = re.sub(pattern_dict[pattern], " " + pattern + " ", mod_string)
     return mod_string
 
 
@@ -57,7 +57,10 @@ class TitleExtractor:
         # 如果找到了<ul>标签，处理其中的<li>标签
         titles_long = []  # 仅统计长文
         if ul_tags:
-            ul_tag = ul_tags[1]  # 仅统计主会长文
+            try:
+                ul_tag = ul_tags[1]  # 仅统计主会长文
+            except IndexError:
+                ul_tag = ul_tags[0]
             li_tags = ul_tag.find_all('li')
             for li in li_tags:
                 strong_tag = li.find('strong')

@@ -4,7 +4,7 @@ class Config:
 
     # 术语替换表, 注意: 不同术语的先后顺序可能影响效果! 例如, LM应置于LLM之后.
     tidy_terminology = {
-        'LLM': ['llms', 'llm', 'large language models', 'large language model'],
+        'LLM': ['llms', 'llm-', 'llm', 'large language models', 'large language model'],
         'pretrain': ['pre-trained', 'pre-training', 'pre-train', 'pretrained', 'pretraining'],
         'LM': ['language models', 'language model'],
         'CoT': ['chain-of-thought'],
@@ -17,11 +17,17 @@ class Config:
         'finetune': ['fine-tuning', 'fine-tuned', 'fine-tune',  'finetuning', 'finetuned'],
         'evaluation': ['evaluating', 'evaluated', 'evaluate'],
         'benchmark': ['benchmarking', 'benchmarks'],
+        'watermark': ['watermarking', 'watermarked', 'watermarks'],
+        'agent': ['agents', 'multi-agent', 'multi-agent', '-agent', 'agent-', 'agentic'],
     }
+
+    stop_word = ['via', 'based', 'model', 'models', 'toward', 'enhancing', 'enhanced', 'across', 'beyond', 'using', 'exploring']
 
     # html或bib源文件url
     src_url = {
         'acl': {  # https://aclanthology.org/venues/acl/
+            '2025mainlong': 'https://2025.aclweb.org/program/main_papers/',
+            '2025findlong': 'https://2025.aclweb.org/program/find_papers/',
             '2024mainlong': 'https://aclanthology.org/volumes/2024.acl-long.bib',
             '2024findlong': 'https://aclanthology.org/volumes/2024.findings-acl.bib',
             '2023mainlong': 'https://aclanthology.org/volumes/2023.acl-long.bib',
@@ -43,6 +49,7 @@ class Config:
             '2010main': 'https://aclanthology.org/volumes/P10-1.bib',
         },
         'coling': {  # https://aclanthology.org/venues/coling/
+            '2025main': 'https://aclanthology.org/volumes/2025.coling-main.bib',
             '2024main': 'https://aclanthology.org/volumes/2024.lrec-main.bib',
             '2022main': 'https://aclanthology.org/volumes/2022.coling-1.bib',
             '2020main': 'https://aclanthology.org/volumes/2020.coling-main.bib',
@@ -53,6 +60,7 @@ class Config:
             '2010main': 'https://aclanthology.org/volumes/C10-1.bib',
         },
         'emnlp': {  # https://aclanthology.org/venues/emnlp/
+            '2024main': 'https://aclanthology.org/volumes/2024.emnlp-main.bib',
             '2023main': 'https://aclanthology.org/volumes/2023.emnlp-main.bib',
             '2022main': 'https://aclanthology.org/volumes/2022.emnlp-main.bib',
             '2021main': 'https://aclanthology.org/volumes/2021.emnlp-main.bib',
@@ -69,6 +77,7 @@ class Config:
             '2010main': 'https://aclanthology.org/volumes/D10-1.bib'
         },
         'iclr': {  # https://iclr.cc/Downloads
+            '2025': 'https://iclr.cc/Downloads/2025',
             '2024': 'https://iclr.cc/Downloads/2024',
             '2023': 'https://iclr.cc/Downloads/2023',
             '2022': 'https://iclr.cc/Downloads/2022',
@@ -78,6 +87,7 @@ class Config:
             '2018': 'https://iclr.cc/Downloads/2018',
         },
         'icml': {  # https://icml.cc/Downloads
+            '2025': 'https://icml.cc/Downloads/2025',
             '2024': 'https://icml.cc/Downloads/2024',
             '2023': 'https://icml.cc/Downloads/2023',
             '2022': 'https://icml.cc/Downloads/2022',
@@ -88,6 +98,7 @@ class Config:
             '2017': 'https://icml.cc/Downloads/2017',
         },
         'naacl': {  # https://aclanthology.org/venues/naacl/
+            '2025mainlong': 'https://aclanthology.org/volumes/2025.naacl-long.bib',
             '2024mainlong': 'https://aclanthology.org/volumes/2024.naacl-long.bib',
             '2022mainlong': 'https://aclanthology.org/volumes/2022.naacl-main.bib',
             '2021mainlong': 'https://aclanthology.org/volumes/2021.naacl-main.bib',
@@ -100,6 +111,7 @@ class Config:
             '2010main': 'https://aclanthology.org/volumes/N10-1.bib',
         },
         'nips': {  # https://papers.nips.cc/
+            '2024main&benchmark': 'https://papers.nips.cc/paper_files/paper/2024',
             '2023main&benchmark': 'https://papers.nips.cc/paper_files/paper/2023',
             '2022main&benchmark': 'https://papers.nips.cc/paper_files/paper/2022',
             '2021main': 'https://papers.nips.cc/paper_files/paper/2021',
@@ -121,6 +133,8 @@ class Config:
     # 原始html/bib文件
     src_file = {
         'acl': {
+            '2025mainlong': 'resources/2025.acl.main.html',
+            '2025findlong': 'resources/2025.acl.findings.html',
             '2024mainlong': 'resources/2024.acl.main.bib',
             '2024findlong': 'resources/2024.acl.findings.bib',
             '2023mainlong': 'resources/2023.acl.main.bib',
@@ -142,6 +156,7 @@ class Config:
             '2010main': 'resources/2010.acl.main.bib',
         },
         'coling': {
+            '2025main': 'resources/2025.coling.main.bib',
             '2024main': 'resources/2024.coling.main.bib',
             '2022main': 'resources/2022.coling.main.bib',
             '2020main': 'resources/2020.coling.main.bib',
@@ -152,6 +167,7 @@ class Config:
             '2010main': 'resources/2010.coling.main.bib',
         },
         'emnlp': {
+            '2024main': 'resources/2024.emnlp.main.bib',
             '2023main': 'resources/2023.emnlp.main.bib',
             '2022main': 'resources/2022.emnlp.main.bib',
             '2021main': 'resources/2021.emnlp.main.bib',
@@ -168,6 +184,7 @@ class Config:
             '2010main': 'resources/2010.emnlp.main.bib',
         },
         'iclr': {
+            '2025': 'resources/2025.iclr.html',
             '2024': 'resources/2024.iclr.html',
             '2023': 'resources/2023.iclr.html',
             '2022': 'resources/2022.iclr.html',
@@ -177,6 +194,7 @@ class Config:
             '2018': 'resources/2018.iclr.html',
         },
         'icml': {
+            '2025': 'resources/2025.icml.html',
             '2024': 'resources/2024.icml.html',
             '2023': 'resources/2023.icml.html',
             '2022': 'resources/2022.icml.html',
@@ -187,6 +205,7 @@ class Config:
             '2017': 'resources/2017.icml.html',
         },
         'naacl': {
+            '2025mainlong': 'resources/2025.naacl.bib',
             '2024mainlong': 'resources/2024.naacl.bib',
             '2022mainlong': 'resources/2022.naacl.bib',
             '2021mainlong': 'resources/2021.naacl.bib',
@@ -199,6 +218,7 @@ class Config:
             '2010main': 'resources/2010.naacl.bib',
         },
         'nips': {
+            '2024main&benchmark': 'resources/2024.nips.main&benchmark.htm',
             '2023main&benchmark': 'resources/2023.nips.main&benchmark.htm',
             '2022main&benchmark': 'resources/2022.nips.main&benchmark.htm',
             '2021main': 'resources/2021.nips.main.htm',
@@ -220,6 +240,8 @@ class Config:
     # 提取的标题文件
     title_file = {
         'acl': {
+            '2025mainlong': 'resources/title_acl25mainlong.txt',
+            '2025findlong': 'resources/title_acl25findlong.txt',
             '2024mainlong': 'resources/title_acl24mainlong.txt',
             '2024findlong': 'resources/title_acl24findlong.txt',
             '2023mainlong': 'resources/title_acl23mainlong.txt',
@@ -241,6 +263,7 @@ class Config:
             '2010main': 'resources/title_acl10main.txt',
         },
         'coling': {
+            '2025main': 'resources/title_coling25main.txt',
             '2024main': 'resources/title_coling24main.txt',
             '2022main': 'resources/title_coling22main.txt',
             '2020main': 'resources/title_coling20main.txt',
@@ -251,6 +274,7 @@ class Config:
             '2010main': 'resources/title_coling10main.txt',
         },
         'emnlp': {
+            '2024main': 'resources/title_emnlp24main.txt',
             '2023main': 'resources/title_emnlp23main.txt',
             '2022main': 'resources/title_emnlp22main.txt',
             '2021main': 'resources/title_emnlp21main.txt',
@@ -267,6 +291,7 @@ class Config:
             '2010main': 'resources/title_emnlp10main.txt',
         },
         'iclr': {
+            '2025': 'resources/title_iclr25.txt',
             '2024': 'resources/title_iclr24.txt',
             '2023': 'resources/title_iclr23.txt',
             '2022': 'resources/title_iclr22.txt',
@@ -276,6 +301,7 @@ class Config:
             '2018': 'resources/title_iclr18.txt',
         },
         'icml': {
+            '2025': 'resources/title_icml25.txt',
             '2024': 'resources/title_icml24.txt',
             '2023': 'resources/title_icml23.txt',
             '2022': 'resources/title_icml22.txt',
@@ -286,6 +312,7 @@ class Config:
             '2017': 'resources/title_icml17.txt',
         },
         'naacl': {
+            '2025mainlong': 'resources/title_naacl25.txt',
             '2024mainlong': 'resources/title_naacl24.txt',
             '2022mainlong': 'resources/title_naacl22.txt',
             '2021mainlong': 'resources/title_naacl21.txt',
@@ -298,6 +325,7 @@ class Config:
             '2010main': 'resources/title_naacl10.txt',
         },
         'nips': {
+            '2024main&benchmark': 'resources/title_nips24main&benchmark.txt',
             '2023main&benchmark': 'resources/title_nips23main&benchmark.txt',
             '2022main&benchmark': 'resources/title_nips22main&benchmark.txt',
             '2021main': 'resources/title_nips21main.txt',

@@ -1,10 +1,14 @@
+import re
 from config import Config
 
 
 def prepare_terminology():
     l = {}
-    for terminology in Config.tidy_terminology.keys():
-        l[terminology] = r'|'.join(list(map(lambda x: r'\b' + x.lower() + r'\b', Config.tidy_terminology[terminology])))
+    for terminology, variants in Config.tidy_terminology.items():
+        # 转义并拼接所有变体
+        pattern = r'|'.join([re.escape(v.lower()) for v in variants])
+        # 编译为忽略大小写的正则对象
+        l[terminology] = re.compile(pattern, flags=re.IGNORECASE)
     return l
 
 
