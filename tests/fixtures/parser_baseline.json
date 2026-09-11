@@ -1,0 +1,42 @@
+[
+  {
+    "file": "acl.html",
+    "parser": "acl_html",
+    "titles": [
+      " LLM  for knowledge",
+      " agent  reasoning with  CoT ",
+      " evaluation   pretrain  models"
+    ]
+  },
+  {
+    "file": "acl_fallback.html",
+    "parser": "acl_html",
+    "titles": [
+      " watermark   LM "
+    ]
+  },
+  {
+    "file": "downloads.html",
+    "parser": "downloads_html",
+    "titles": [
+      "graph-based knowledge and  agent ",
+      "learning with  ReinLearn "
+    ]
+  },
+  {
+    "file": "nips.html",
+    "parser": "nips_html",
+    "titles": [
+      "diffusion models for ai",
+      " benchmark  for  InstTune   LLM "
+    ]
+  },
+  {
+    "file": "papers.bib",
+    "parser": "bibtex",
+    "titles": [
+      "knowledge in  LLM ",
+      " finetune  for  NLP "
+    ]
+  }
+]
