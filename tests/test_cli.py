@@ -1,3 +1,5 @@
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -6,6 +8,19 @@ from panaly.cli import main
 from panaly.config import get_proceeding, select_proceedings
 from panaly.download import download_source
 from panaly.paths import Paths, legacy_source_name
+
+
+@pytest.mark.parametrize("entry", [["main.py"], ["-m", "panaly"]])
+def test_entry_points_run_from_source_without_site_packages(entry):
+    result = subprocess.run(
+        [sys.executable, "-S", *entry, "list", "--conference", "acl"],
+        cwd=Path(__file__).resolve().parents[1],
+        capture_output=True,
+        text=True,
+        timeout=15,
+    )
+    assert result.returncode == 0, result.stderr
+    assert "2025mainlong" in result.stdout
 
 
 def test_year_selection_defaults_to_main_and_orders_chronologically():

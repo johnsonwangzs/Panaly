@@ -2,19 +2,20 @@
 
 import re
 
-import bibtexparser
-from bs4 import BeautifulSoup
-
 from panaly.models import Parser
 from panaly.normalize import normalize_title
 
 
 def parse_titles(content: str, parser: Parser) -> list[str]:
     if parser == "bibtex":
+        import bibtexparser
+
         return [
             normalize_title(re.sub(r"{(.*?)}", r"\1", entry.get("title")))
             for entry in bibtexparser.loads(content).entries
         ]
+
+    from bs4 import BeautifulSoup
 
     selectors = {
         "acl_html": ("section.page__content ul", "strong"),

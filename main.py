@@ -1,4 +1,4 @@
-"""Legacy script entry point; use `python -m panaly` or `panaly` after installation."""
+"""Run directly from source: python main.py [command] [options]."""
 
 from panaly.cli import main
 from panaly.compat import plot_tendency, plot_wordcloud

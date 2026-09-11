@@ -24,7 +24,7 @@ def _add_paths(parser: argparse.ArgumentParser) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        prog="panaly", description="分析学术会议论文标题中的热点和趋势。"
+        prog="python main.py", description="分析学术会议论文标题中的热点和趋势。"
     )
     commands = parser.add_subparsers(dest="command")
 
