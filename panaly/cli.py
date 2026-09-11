@@ -5,7 +5,7 @@ import logging
 from pathlib import Path
 
 from panaly.config import PROCEEDINGS, select_proceedings
-from panaly.paths import Paths
+from panaly.paths import Paths, report_paths
 
 
 def _positive_int(value: str) -> int:
@@ -37,8 +37,13 @@ def build_parser() -> argparse.ArgumentParser:
     selection.add_argument("--years", nargs="+", type=int, help="年份；默认选择各年的主会分卷")
     selection.add_argument("--proceedings", nargs="+", help="完整论文集 ID，例如 2025mainlong")
     trend.add_argument("--track", help="年份对应的分卷后缀，例如 findlong、benchmark")
-    trend.add_argument("--keywords", required=True, nargs="+", help="小写关键词；匹配其中任意一个")
+    trend.add_argument(
+        "--keywords", required=True, nargs="+", help="关键词或短语；不区分大小写，短语用引号包围"
+    )
     trend.add_argument("--description", help="图表主题描述，默认使用关键词")
+    trend.add_argument(
+        "--compare-legacy", action="store_true", help="另存旧规则对照表和增减论文明细"
+    )
     _add_paths(trend)
 
     wordcloud = commands.add_parser("wordcloud", help="生成单个论文集的标题词云")
@@ -64,7 +69,8 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{conference}: {' '.join(PROCEEDINGS[conference])}")
         return 0
 
-    logging.basicConfig(level=logging.INFO, format="%(message)s")
+    logging.basicConfig(level=logging.WARNING, format="%(message)s")
+    logging.getLogger("panaly").setLevel(logging.INFO)
     paths = Paths(args.data_dir, args.output_dir, args.legacy_dir)
     try:
         if args.command == "trend":
@@ -79,10 +85,26 @@ def main(argv: list[str] | None = None) -> int:
                 args.description or "_".join(args.keywords),
                 paths,
                 show=args.show,
+                compare_legacy=args.compare_legacy,
             )
             print("论文集\t相关论文\t论文总数\t占比 (%)")
             for point in points:
                 print(f"{point.proceeding.key}\t{point.count}\t{point.total}\t{point.ratio:.6f}")
+            reports = report_paths(
+                args.conference, args.description or "_".join(args.keywords), paths.output_dir
+            )
+            names = ["summary", "papers", "metadata"]
+            if args.compare_legacy:
+                names.extend(["comparison", "changes"])
+            labels = {
+                "summary": "统计表",
+                "papers": "匹配论文",
+                "metadata": "运行记录",
+                "comparison": "新旧对照",
+                "changes": "变化明细",
+            }
+            for name in names:
+                print(f"{labels[name]}: {reports[name].resolve()}")
         else:
             proceedings = select_proceedings(
                 args.conference,

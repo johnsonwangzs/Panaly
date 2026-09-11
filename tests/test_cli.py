@@ -39,6 +39,7 @@ def test_year_selection_defaults_to_main_and_orders_chronologically():
         ["wordcloud", "--conference", "acl", "--year", "2025", "--max-words", "0"],
         ["wordcloud", "--conference", "acl", "--proceeding", "missing"],
         ["wordcloud", "--conference", "acl", "--proceeding", "2025mainlong", "--track", "mainlong"],
+        ["trend", "--conference", "acl", "--years", "2025", "--keywords", "???"],
     ],
 )
 def test_invalid_cli_selection_fails_before_data_access(arguments, capsys):

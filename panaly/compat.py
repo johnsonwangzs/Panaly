@@ -6,13 +6,13 @@ on Config are compatibility snapshots; edit the catalogue instead of those maps.
 
 from pathlib import Path
 
-from panaly.analysis import find_matches
+from panaly.analysis import analyze_papers
 from panaly.config import PROCEEDINGS, get_proceeding
 from panaly.download import download_source
 from panaly.models import TrendPoint
 from panaly.parsers import parse_titles
 from panaly.paths import Paths
-from panaly.pipeline import extract_titles, read_titles, run_trend, run_wordcloud
+from panaly.pipeline import extract_titles, read_papers, read_titles, run_trend, run_wordcloud
 from panaly.plotting import plot_trend
 from panaly.plotting import plot_wordcloud as render_wordcloud
 from panaly.terminology import STOP_WORDS, TERMINOLOGY
@@ -96,10 +96,10 @@ class PaperSearcher:
                 if key not in PROCEEDINGS[conference]:
                     continue
                 item = get_proceeding(conference, key)
-                matches = find_matches(read_titles(item, Paths()), self.keywords)
-                for title in matches:
-                    print(f"{conference}-{key} | {title.strip()}")
-                record[conference][key] = len(matches)
+                result = analyze_papers(item, read_papers(item, Paths()), self.keywords)
+                for match in result.matches:
+                    print(f"{conference}-{key} | {match.paper.original_title.strip()}")
+                record[conference][key] = result.count
         return sum(sum(counts.values()) for counts in record.values()), record
 
 

@@ -27,10 +27,24 @@ class Proceeding:
 
 
 @dataclass(frozen=True)
+class Paper:
+    source_index: int
+    original_title: str
+    normalized_title: str
+
+
+@dataclass(frozen=True)
+class PaperMatch:
+    paper: Paper
+    matched_keywords: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class TrendPoint:
     proceeding: Proceeding
     count: int
     total: int
+    matches: tuple[PaperMatch, ...] = ()
 
     @property
     def ratio(self) -> float:

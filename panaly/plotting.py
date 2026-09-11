@@ -5,6 +5,7 @@ from contextlib import contextmanager
 from pathlib import Path
 
 from panaly.models import Proceeding, TrendPoint
+from panaly.paths import safe_description
 from panaly.terminology import STOP_WORDS
 
 
@@ -57,8 +58,7 @@ def plot_trend(
         ax2.grid(True)
         fig.tight_layout()
         output_dir.mkdir(parents=True, exist_ok=True)
-        # Descriptions are labels; path separators must not create subdirectories.
-        filename = description.replace("/", "_").replace("\\", "_")
+        filename = safe_description(description)
         target = output_dir / f"plot_{conference}_{filename}.png"
         fig.savefig(target)
         return target

@@ -1,0 +1,545 @@
+{
+  "normalization_version": 2,
+  "proceedings": [
+    {
+      "conference": "acl",
+      "key": "2025mainlong",
+      "total": 1701,
+      "original_titles_sha256": "913fc3a6feb33e3574ea2ff2cf53808ed9c72570b991ffa5fded6aea52ab146e",
+      "titles_sha256": "da68391a3713cd66180b6fbdc59139860943c808b369d1a1138aa21258a1d517",
+      "counts": {
+        "knowledge": {
+          "count": 116,
+          "ratio": 6.819517930629042
+        },
+        "language_model": {
+          "count": 757,
+          "ratio": 44.50323339212228
+        },
+        "agent": {
+          "count": 105,
+          "ratio": 6.172839506172839
+        },
+        "watermark": {
+          "count": 9,
+          "ratio": 0.5291005291005291
+        },
+        "reason": {
+          "count": 129,
+          "ratio": 7.583774250440917
+        },
+        "evaluation": {
+          "count": 301,
+          "ratio": 17.695473251028808
+        },
+        "safety": {
+          "count": 104,
+          "ratio": 6.114050558495003
+        },
+        "diffusion": {
+          "count": 10,
+          "ratio": 0.5878894767783657
+        },
+        "graph": {
+          "count": 47,
+          "ratio": 2.7630805408583186
+        }
+      }
+    },
+    {
+      "conference": "acl",
+      "key": "2024mainlong",
+      "total": 865,
+      "original_titles_sha256": "a0388884baf25efec4e96995439d99294260a392bac4e14f0af72e510342cb79",
+      "titles_sha256": "7ea18f1d8b272cfc799e46484a97aa5f9e6424d521fee89b94f73f604ed954cd",
+      "counts": {
+        "knowledge": {
+          "count": 56,
+          "ratio": 6.473988439306358
+        },
+        "language_model": {
+          "count": 388,
+          "ratio": 44.85549132947977
+        },
+        "agent": {
+          "count": 34,
+          "ratio": 3.9306358381502893
+        },
+        "watermark": {
+          "count": 8,
+          "ratio": 0.9248554913294799
+        },
+        "reason": {
+          "count": 59,
+          "ratio": 6.820809248554912
+        },
+        "evaluation": {
+          "count": 136,
+          "ratio": 15.722543352601157
+        },
+        "safety": {
+          "count": 46,
+          "ratio": 5.317919075144509
+        },
+        "diffusion": {
+          "count": 5,
+          "ratio": 0.5780346820809248
+        },
+        "graph": {
+          "count": 24,
+          "ratio": 2.7745664739884393
+        }
+      }
+    },
+    {
+      "conference": "acl",
+      "key": "2023mainlong",
+      "total": 912,
+      "original_titles_sha256": "d92f862a29f7fabe36cad70d6da0705fedf090adcf952a79e58a9d0e9fbd65c4",
+      "titles_sha256": "4b6d7b4d3025b2df4029f0a318957b4e45cc078d152db73c088facf1aa5b4e31",
+      "counts": {
+        "knowledge": {
+          "count": 71,
+          "ratio": 7.785087719298247
+        },
+        "language_model": {
+          "count": 118,
+          "ratio": 12.938596491228072
+        },
+        "agent": {
+          "count": 2,
+          "ratio": 0.21929824561403508
+        },
+        "watermark": {
+          "count": 2,
+          "ratio": 0.21929824561403508
+        },
+        "reason": {
+          "count": 46,
+          "ratio": 5.0438596491228065
+        },
+        "evaluation": {
+          "count": 113,
+          "ratio": 12.390350877192983
+        },
+        "safety": {
+          "count": 16,
+          "ratio": 1.7543859649122806
+        },
+        "diffusion": {
+          "count": 6,
+          "ratio": 0.6578947368421052
+        },
+        "graph": {
+          "count": 39,
+          "ratio": 4.276315789473684
+        }
+      }
+    },
+    {
+      "conference": "acl",
+      "key": "2022mainlong",
+      "total": 604,
+      "original_titles_sha256": "97d6ce97d9a1d824a30e2270edfde25910c66b29ba4ab432ec576830300225af",
+      "titles_sha256": "26c84add434d8661ad7806e60d024ecb272c0c1df13f58cd75e2eba45bc4ab84",
+      "counts": {
+        "knowledge": {
+          "count": 40,
+          "ratio": 6.622516556291391
+        },
+        "language_model": {
+          "count": 56,
+          "ratio": 9.271523178807946
+        },
+        "agent": {
+          "count": 1,
+          "ratio": 0.16556291390728478
+        },
+        "watermark": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "reason": {
+          "count": 17,
+          "ratio": 2.814569536423841
+        },
+        "evaluation": {
+          "count": 62,
+          "ratio": 10.264900662251655
+        },
+        "safety": {
+          "count": 7,
+          "ratio": 1.1589403973509933
+        },
+        "diffusion": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "graph": {
+          "count": 29,
+          "ratio": 4.801324503311259
+        }
+      }
+    },
+    {
+      "conference": "iclr",
+      "key": "2025",
+      "total": 3879,
+      "original_titles_sha256": "d1628f42a97fec0f1b16d811e45450d3fd1754ebaee2ef60ca27e05f06719ed2",
+      "titles_sha256": "e01dbeb090794423ae4b2062f4a24a2c7744066440824ee6d6f4bcc08fca09df",
+      "counts": {
+        "knowledge": {
+          "count": 74,
+          "ratio": 1.907708172209332
+        },
+        "language_model": {
+          "count": 734,
+          "ratio": 18.922402681103378
+        },
+        "agent": {
+          "count": 136,
+          "ratio": 3.506058262438773
+        },
+        "watermark": {
+          "count": 14,
+          "ratio": 0.3609177623098737
+        },
+        "reason": {
+          "count": 98,
+          "ratio": 2.5264243361691157
+        },
+        "evaluation": {
+          "count": 288,
+          "ratio": 7.424593967517401
+        },
+        "safety": {
+          "count": 153,
+          "ratio": 3.944315545243619
+        },
+        "diffusion": {
+          "count": 285,
+          "ratio": 7.347254447022429
+        },
+        "graph": {
+          "count": 150,
+          "ratio": 3.8669760247486464
+        }
+      }
+    },
+    {
+      "conference": "iclr",
+      "key": "2024",
+      "total": 2341,
+      "original_titles_sha256": "265747b3c42f37f93d15e409d445f9848dd13dee83d01002ddc46e343c704368",
+      "titles_sha256": "5de1dc304c7874c3f0ba08c106eeb62b2f7133f5adc289b6447f56614887052f",
+      "counts": {
+        "knowledge": {
+          "count": 35,
+          "ratio": 1.49508756941478
+        },
+        "language_model": {
+          "count": 303,
+          "ratio": 12.94318667236224
+        },
+        "agent": {
+          "count": 40,
+          "ratio": 1.7086715079026058
+        },
+        "watermark": {
+          "count": 10,
+          "ratio": 0.42716787697565145
+        },
+        "reason": {
+          "count": 42,
+          "ratio": 1.794105083297736
+        },
+        "evaluation": {
+          "count": 130,
+          "ratio": 5.553182400683468
+        },
+        "safety": {
+          "count": 45,
+          "ratio": 1.9222554463904313
+        },
+        "diffusion": {
+          "count": 165,
+          "ratio": 7.048269970098249
+        },
+        "graph": {
+          "count": 115,
+          "ratio": 4.912430585219991
+        }
+      }
+    },
+    {
+      "conference": "iclr",
+      "key": "2023",
+      "total": 1615,
+      "original_titles_sha256": "5e1c39ec1c27b42049e2184845489dc6d5cfc59475ec8c66d7efa23597014bbc",
+      "titles_sha256": "4e0e94ee2eae8d00bf5ff869eaacbb888ff1f8d2d955ab5b52575fc053c84d64",
+      "counts": {
+        "knowledge": {
+          "count": 28,
+          "ratio": 1.7337461300309598
+        },
+        "language_model": {
+          "count": 52,
+          "ratio": 3.219814241486068
+        },
+        "agent": {
+          "count": 24,
+          "ratio": 1.4860681114551082
+        },
+        "watermark": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "reason": {
+          "count": 26,
+          "ratio": 1.609907120743034
+        },
+        "evaluation": {
+          "count": 50,
+          "ratio": 3.0959752321981426
+        },
+        "safety": {
+          "count": 22,
+          "ratio": 1.3622291021671828
+        },
+        "diffusion": {
+          "count": 50,
+          "ratio": 3.0959752321981426
+        },
+        "graph": {
+          "count": 101,
+          "ratio": 6.253869969040247
+        }
+      }
+    },
+    {
+      "conference": "iclr",
+      "key": "2022",
+      "total": 1123,
+      "original_titles_sha256": "c0b15eb33c4440e3f032d797d9d2250880188ab38fdb497a7b38548d58039cfc",
+      "titles_sha256": "947a0c6939a182e929e5aa07119dc279e83ae18016162c69e85502d8be2a92fa",
+      "counts": {
+        "knowledge": {
+          "count": 12,
+          "ratio": 1.068566340160285
+        },
+        "language_model": {
+          "count": 20,
+          "ratio": 1.7809439002671414
+        },
+        "agent": {
+          "count": 16,
+          "ratio": 1.4247551202137132
+        },
+        "watermark": {
+          "count": 0,
+          "ratio": 0.0
+        },
+        "reason": {
+          "count": 13,
+          "ratio": 1.157613535173642
+        },
+        "evaluation": {
+          "count": 25,
+          "ratio": 2.226179875333927
+        },
+        "safety": {
+          "count": 8,
+          "ratio": 0.7123775601068566
+        },
+        "diffusion": {
+          "count": 15,
+          "ratio": 1.335707925200356
+        },
+        "graph": {
+          "count": 66,
+          "ratio": 5.8771148708815675
+        }
+      }
+    },
+    {
+      "conference": "icml",
+      "key": "2025",
+      "total": 3390,
+      "original_titles_sha256": "21e424682dc6959cce172de099fa95db00ad16c3944076d2fe10cf4535ae74cf",
+      "titles_sha256": "b6a944de12ee3656046c081dbfcf62ecb27b80a759d81fc5b94582e80d516823",
+      "counts": {
+        "knowledge": {
+          "count": 61,
+          "ratio": 1.7994100294985251
+        },
+        "language_model": {
+          "count": 487,
+          "ratio": 14.365781710914455
+        },
+        "agent": {
+          "count": 115,
+          "ratio": 3.392330383480826
+        },
+        "watermark": {
+          "count": 16,
+          "ratio": 0.471976401179941
+        },
+        "reason": {
+          "count": 98,
+          "ratio": 2.8908554572271385
+        },
+        "evaluation": {
+          "count": 173,
+          "ratio": 5.103244837758112
+        },
+        "safety": {
+          "count": 145,
+          "ratio": 4.277286135693215
+        },
+        "diffusion": {
+          "count": 193,
+          "ratio": 5.6932153392330385
+        },
+        "graph": {
+          "count": 175,
+          "ratio": 5.162241887905605
+        }
+      }
+    },
+    {
+      "conference": "icml",
+      "key": "2024",
+      "total": 2681,
+      "original_titles_sha256": "608a055342a9a26a74f8bf7dea6e1522e00854fe97f2a982342e0ed933464671",
+      "titles_sha256": "7ab3fc9766e3a8c3fe151499c8d93cb81cb7c329042c1ca203108da172bad0b3",
+      "counts": {
+        "knowledge": {
+          "count": 37,
+          "ratio": 1.3800820589332339
+        },
+        "language_model": {
+          "count": 298,
+          "ratio": 11.115255501678478
+        },
+        "agent": {
+          "count": 58,
+          "ratio": 2.16337187616561
+        },
+        "watermark": {
+          "count": 11,
+          "ratio": 0.41029466616933974
+        },
+        "reason": {
+          "count": 29,
+          "ratio": 1.081685938082805
+        },
+        "evaluation": {
+          "count": 85,
+          "ratio": 3.1704587840358074
+        },
+        "safety": {
+          "count": 68,
+          "ratio": 2.536367027228646
+        },
+        "diffusion": {
+          "count": 119,
+          "ratio": 4.43864229765013
+        },
+        "graph": {
+          "count": 128,
+          "ratio": 4.774337933606863
+        }
+      }
+    },
+    {
+      "conference": "icml",
+      "key": "2023",
+      "total": 1908,
+      "original_titles_sha256": "9bd1edea8ce690623c9e846bd70e86e03325d7e59054eaba52b2c913830b5d4f",
+      "titles_sha256": "0b8fb28adc018e294e471d7d27011854a9fb789260cc6eb09c68911607fee55f",
+      "counts": {
+        "knowledge": {
+          "count": 21,
+          "ratio": 1.10062893081761
+        },
+        "language_model": {
+          "count": 54,
+          "ratio": 2.8301886792452833
+        },
+        "agent": {
+          "count": 32,
+          "ratio": 1.6771488469601679
+        },
+        "watermark": {
+          "count": 4,
+          "ratio": 0.20964360587002098
+        },
+        "reason": {
+          "count": 12,
+          "ratio": 0.628930817610063
+        },
+        "evaluation": {
+          "count": 44,
+          "ratio": 2.3060796645702304
+        },
+        "safety": {
+          "count": 16,
+          "ratio": 0.8385744234800839
+        },
+        "diffusion": {
+          "count": 70,
+          "ratio": 3.668763102725367
+        },
+        "graph": {
+          "count": 110,
+          "ratio": 5.765199161425576
+        }
+      }
+    },
+    {
+      "conference": "icml",
+      "key": "2022",
+      "total": 1279,
+      "original_titles_sha256": "9e002d77918f88057c73159058ca305e84888801d4eb38724a8c5024dedb209d",
+      "titles_sha256": "9978c4277a33d6d3cb96f6bd3ec2ddb6eda31066ba9c94ae0edaf6e33c512d7d",
+      "counts": {
+        "knowledge": {
+          "count": 13,
+          "ratio": 1.016419077404222
+        },
+        "language_model": {
+          "count": 16,
+          "ratio": 1.2509773260359656
+        },
+        "agent": {
+          "count": 20,
+          "ratio": 1.5637216575449568
+        },
+        "watermark": {
+          "count": 1,
+          "ratio": 0.07818608287724785
+        },
+        "reason": {
+          "count": 6,
+          "ratio": 0.46911649726348714
+        },
+        "evaluation": {
+          "count": 38,
+          "ratio": 2.9710711493354185
+        },
+        "safety": {
+          "count": 17,
+          "ratio": 1.3291634089132134
+        },
+        "diffusion": {
+          "count": 12,
+          "ratio": 0.9382329945269743
+        },
+        "graph": {
+          "count": 68,
+          "ratio": 5.3166536356528535
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "file": "acl.html",
+    "original_titles": [
+      "Large Language Models for Knowledge",
+      "Multi-Agent Reasoning with Chain-of-Thought",
+      "Evaluating\n      Pre-trained Models"
+    ],
+    "titles": ["LLM for knowledge", "agent reasoning with CoT", "evaluation pretrain models"]
+  },
+  {
+    "file": "acl_fallback.html",
+    "original_titles": ["Watermarking Language Models"],
+    "titles": ["watermark LM"]
+  },
+  {
+    "file": "downloads.html",
+    "original_titles": ["Graph-based Knowledge and Agents", "Learning with Reinforcement Learning"],
+    "titles": ["graph based knowledge and agent", "learning with ReinLearn"]
+  },
+  {
+    "file": "nips.html",
+    "original_titles": ["Diffusion Models for AI", "Benchmarks for Instruction-Tuned LLMs"],
+    "titles": ["diffusion models for AI", "benchmark for InstTune LLM"]
+  },
+  {
+    "file": "papers.bib",
+    "original_titles": ["Knowledge in {Large Language Models}", "Fine-Tuning for Natural Language Processing"],
+    "titles": ["knowledge in LLM", "finetune for NLP"]
+  }
+]
