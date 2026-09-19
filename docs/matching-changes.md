@@ -82,7 +82,7 @@
 可在任意趋势命令后加 `--compare-legacy`，生成该主题的旧规则对照表和增减明细。例如：
 
 ```bash
-python main.py trend --conference acl --years 2022 2023 2024 2025 --keywords knowledge --compare-legacy
+python -m panaly trend --conference acl --years 2022 2023 2024 2025 --keywords knowledge --compare-legacy
 ```
 
 第一轮基线保留在 `tests/fixtures/local_baseline.json`，新计数保存在 `tests/fixtures/phase2_baseline.json`。自动测试同时校验源文件、旧规则复现和新规则结果，不用新快照覆盖旧证据。

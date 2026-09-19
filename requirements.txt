@@ -1,3 +1,4 @@
+# Runtime dependencies. Development tools: requirements-dev.txt.
 beautifulsoup4>=4.12,<5
 bibtexparser>=1.4,<2
 matplotlib>=3.7,<4

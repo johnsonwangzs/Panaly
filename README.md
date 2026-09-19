@@ -8,41 +8,49 @@
 
 使用现有的 Python 3.10 或以上环境，在项目根目录直接运行脚本。无需创建虚拟环境，也无需先将本项目安装成 Python 包。
 
-脚本使用的第三方库列在 `requirements.txt`：Beautiful Soup、bibtexparser、Matplotlib 和 WordCloud。依赖沿用现有 Python 环境，项目不负责创建或切换环境。帮助和会议列表只使用 Python 标准库。
+推荐入口为 `python -m panaly`。运行依赖列在 `requirements.txt`，开发依赖列在 `requirements-dev.txt`，可选实验依赖单独放在 `experiments/requirements.txt`。使用当前 Python 环境安装所需清单：
+
+```bash
+python -m pip install -r requirements.txt
+# 开发时使用下面的清单，已包含运行依赖
+python -m pip install -r requirements-dev.txt
+```
+
+项目不创建或切换环境。帮助和会议列表只使用 Python 标准库；正常分析不需要实验 SDK。
 
 ## 使用
 
 查看会议和论文集：
 
 ```bash
-python main.py list
-python main.py list --conference acl
+python -m panaly list
+python -m panaly list --conference acl
 ```
 
 分析 ACL 2022–2025 年主会长文中的 knowledge 主题，与重构前 `main.py` 的默认分析对应：
 
 ```bash
-python main.py trend --conference acl --years 2022 2023 2024 2025 --keywords knowledge
+python -m panaly trend --conference acl --years 2022 2023 2024 2025 --keywords knowledge
 ```
 
 同时匹配多个关键词，并指定图表主题：
 
 ```bash
-python main.py trend --conference iclr --years 2022 2023 2024 2025 --keywords llm lm --description "language model"
+python -m panaly trend --conference iclr --years 2022 2023 2024 2025 --keywords llm lm --description "language model"
 ```
 
 生成词云：
 
 ```bash
-python main.py wordcloud --conference icml --year 2025 --max-words 150
+python -m panaly wordcloud --conference icml --year 2025 --max-words 150
 ```
 
 年份选择默认采用当年的主会分卷，优先顺序为 `mainlong`、`main`、无后缀、`main&benchmark`。例如 ACL 2025 选择 `2025mainlong`，NeurIPS 2022 选择 `2022main&benchmark`。也可以指定分卷后缀或完整 ID：
 
 ```bash
-python main.py trend --conference acl --years 2023 2024 --track findlong --keywords knowledge
-python main.py trend --conference acl --proceedings 2020main 2021mainlong --keywords knowledge
-python main.py wordcloud --conference nips --proceeding "2024main&benchmark"
+python -m panaly trend --conference acl --years 2023 2024 --track findlong --keywords knowledge
+python -m panaly trend --conference acl --proceedings 2020main 2021mainlong --keywords knowledge
+python -m panaly wordcloud --conference nips --proceeding "2024main&benchmark"
 ```
 
 趋势图按年份从早到晚展示；同一论文集重复传入只统计一次。`--track` 只与年份参数一起使用。关键词不区分大小写，短语使用引号包围。
@@ -50,10 +58,10 @@ python main.py wordcloud --conference nips --proceeding "2024main&benchmark"
 图表默认只保存，不打开窗口；添加 `--show` 可在保存后显示。使用 `--output-dir` 修改输出位置，例如：
 
 ```bash
-python main.py wordcloud --conference icml --year 2025 --output-dir outputs/demo --show
+python -m panaly wordcloud --conference icml --year 2025 --output-dir outputs/demo --show
 ```
 
-也可以在项目根目录运行 `python -m panaly ...`，参数完全相同。无参数时显示帮助，不再自动启动分析。
+过渡期仍可运行 `python main.py ...`，参数完全相同。无参数时显示帮助，不会自动启动分析。
 
 ## 数据和输出
 
@@ -84,7 +92,7 @@ outputs/
 多词查询匹配连续词元，不会跳过中间单词。除术语表中显式列出的变体外，不自动推断单复数或词干。示例：
 
 ```bash
-python main.py trend --conference iclr --years 2022 2023 2024 2025 --keywords "knowledge graph" "knowledge graphs" LLM --description "selected topics"
+python -m panaly trend --conference iclr --years 2022 2023 2024 2025 --keywords "knowledge graph" "knowledge graphs" LLM --description "selected topics"
 ```
 
 `language model` 归并为 `LM`，`large language model` 归并为 `LLM`，二者分别匹配。如果要把 `MLLM` 和 `language modeling` 也算入语言模型主题，请显式加入这些关键词或配置对应别名。
@@ -100,7 +108,7 @@ CSV 使用 UTF-8 BOM 编码；包含逗号、引号或换行的标题会正确�
 加上 `--compare-legacy` 可额外生成 `*_comparison.csv` 和 `*_changes.csv`：前者列出旧数、新数、增减数量和占比，后者逐篇给出变化方向、旧/新标准化标题、命中关键词和原因类别。
 
 ```bash
-python main.py trend --conference iclr --years 2022 2023 2024 2025 --keywords knowledge --compare-legacy
+python -m panaly trend --conference iclr --years 2022 2023 2024 2025 --keywords knowledge --compare-legacy
 ```
 
 对照里的 `title_normalization` 表示仅调整标题标准化就改变了命中结果；`query_normalization_or_phrase` 表示查询词归一化或短语匹配导致变化。旧规则使用冻结的第一轮术语表和原来的匹配方式；旧查询仍按当时的小写要求执行。
@@ -113,6 +121,8 @@ python main.py trend --conference iclr --years 2022 2023 2024 2025 --keywords kn
 
 ```text
 panaly/
+├── __main__.py     # 推荐启动入口：python -m panaly
+├── _deprecation.py # 根目录旧入口共用的弃用提示
 ├── cli.py          # 参数解析与终端输出
 ├── config.py       # 每个论文集只配置一次：会议、ID、URL、解析方式
 ├── terminology.py  # 有序术语替换表和额外停用词
@@ -131,6 +141,12 @@ panaly/
 tests/
 ├── fixtures/       # 小型解析样本及重构前结果快照
 └── test_*.py       # 单元、CLI 和本地数据回归测试
+experiments/
+├── extract_keyword.py # 可选 LLM 实验，使用包内配置和路径接口
+├── requirements.txt   # 实验可选依赖
+└── README.md          # 环境变量配置与运行说明
+requirements.txt       # 运行依赖
+requirements-dev.txt   # 运行依赖及开发检查工具
 ```
 
 新增论文集时，只需在 `panaly/config.py` 的对应会议和解析方式分组中添加一条 ID → URL 记录；新文件路径自动生成。会议 ID 为小写，论文集 ID 以四位年份开头。新增页面结构时，在 `parsers.py` 中添加相应解析器。
@@ -161,15 +177,15 @@ for point in points:
         print(match.paper.original_title, match.matched_keywords)
 ```
 
-原有 `main.plot_tendency`、`main.plot_wordcloud`、`search_paper.PaperSearcher` 等导入保留为兼容入口，内部转交包实现。兼容入口同样默认保存到 `outputs`；绘图时可以显式传入 `show=True`。原有趋势接口继续按传入论文集的逆序绘图。
+原有 `main.plot_tendency`、`main.plot_wordcloud`、`search_paper.PaperSearcher` 等根目录 Python 导入已弃用，过渡期保留并发出 `DeprecationWarning`，计划在 v1.0.0 移除。替代接口、参数差异和兼容窗口见 [入口迁移说明](docs/entrypoint-migration.md)。兼容接口仍默认保存到 `outputs`，保留 `show=True` 和旧趋势接口的逆序绘图行为。
 
 根目录 `config.Config` 的 URL 和路径字典是兼容读取快照，不再作为配置来源；修改配置请编辑包内 `config.py`。术语和停用词已移到 `terminology.py`。
 
-`extract_keyword.py` 保留为原有的独立实验脚本，未接入默认流程。本轮未调整其 API 调用；它额外使用现有环境中的 `openai` 库，并需要完成原脚本的 API Key 配置。
+LLM 关键词提取已移到 `experiments/extract_keyword.py`，根目录同名文件只保留弃用转发。使用 `python -m experiments.extract_keyword` 运行，通过环境变量配置凭据；详情见 [实验说明](experiments/README.md)。
 
-## 验证与本轮边界
+## 开发检查与覆盖范围
 
-`pyproject.toml` 仅保存测试和代码格式检查的设置，不包含安装或构建配置。以下开发检查使用现有环境中的 pytest 和 Ruff，不是运行脚本的前置步骤。
+`pyproject.toml` 仅保存测试和代码格式检查的设置，不包含安装或构建配置。安装 `requirements-dev.txt` 后运行以下检查；Ruff 同时检查核心代码、兼容入口和实验代码。
 
 ```bash
 python -m pytest -q
@@ -183,10 +199,11 @@ python -m ruff format --check .
 - 原始标题、Unicode、连字符、词边界、别名、连续短语及一篇只计一次。
 - JSON 原文保留、旧缓存识别、CSV 转义和明细与统计表的一致性。
 - 12 个本地论文集的源文件校验值、旧规则复现，以及 108 组新计数和占比。
-- CLI 直接运行、旧 Python 入口和图表生成。
+- CLI 直接运行、旧 Python 入口的弃用提示与兼容行为、图表生成。
+- 实验入口在缺少可选 SDK 时仍能显示帮助，以及新旧标题路径和输出名称的兼容性。
 
 本地原始数据未提交到仓库；缺少对应 `resources` 文件时，该项回归测试会跳过，其他测试仍可运行。只运行不需要本地大数据的测试可执行 `python -m pytest -q -m "not local_data"`。
 
 第一轮快照仍保存在 `tests/fixtures/local_baseline.json`，第二轮快照为 `tests/fixtures/phase2_baseline.json`；完整变化说明见 [匹配规则变更核查](docs/matching-changes.md)。词云使用新的标准化标题，因此内容和词频可能随新规则变化；旧规则的词频仍由测试复核。
 
-下载重试、失败恢复、空解析结果处理和预设主题配置尚未在本轮改动。
+本次入口整理未改变匹配规则、数据目录或统计基线。下载重试、失败恢复、空解析结果处理、任务管理和前端接口留待后续阶段。

@@ -85,7 +85,7 @@ def test_trend_exports_reconcile_with_papers_and_preserve_csv_text(tmp_path, key
 
 
 def test_legacy_searcher_uses_original_titles(tmp_path, monkeypatch, capsys):
-    from search_paper import PaperSearcher
+    from panaly.compat import PaperSearcher
 
     fixture = (Path(__file__).parent / "fixtures/acl.html").read_bytes()
     monkeypatch.chdir(tmp_path)

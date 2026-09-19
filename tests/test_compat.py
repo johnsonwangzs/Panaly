@@ -1,10 +1,15 @@
 from pathlib import Path
 
-from main import plot_tendency
-from search_paper import PaperSearcher
+import pytest
 
 
 def test_original_imports_work_with_existing_cache(tmp_path, monkeypatch):
+    # Only this compatibility test deliberately imports the deprecated root modules.
+    with pytest.warns(DeprecationWarning, match="main.plot_tendency is deprecated"):
+        from main import plot_tendency
+    with pytest.warns(DeprecationWarning, match="search_paper is deprecated"):
+        from search_paper import PaperSearcher
+
     fixture = (Path(__file__).parent / "fixtures/acl.html").read_bytes()
     monkeypatch.chdir(tmp_path)
     legacy = tmp_path / "resources"
